@@ -56,50 +56,30 @@ if (isset($_POST['add_to_cart'])) {
         <div class="swiper home-slider">
             <div class="swiper-wrapper">
                 <div class="item swiper-slide">
-                    <img src="images/home-bg.jpg" alt="" />
+                    <img src="images/home-slider1.jpg" alt="" />
                     <div class="content">
-                        <h3>hand picked book to your door.</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Possimus, ipsam?
-                        </p>
-                        <a href="about.php"><button class="white-btn">discover</button></a>
+                    <!--------------text----------------->
                     </div>
                 </div>
 
                 <div class="item swiper-slide">
-                    <img src="images/home-bg1.jpg" alt="" />
+                    <img src="images/home-slider2.jpg" alt="" />
                     <div class="content">
-                        <h3>best discount</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Possimus, ipsam?
-                        </p>
-                        <a href="shop.php"><button class="white-btn">discover</button></a>
+                    <!--------------text----------------->
                     </div>
                 </div>
 
                 <div class="item swiper-slide">
-                    <img src="images/home-bg2.jpg" alt="" />
+                    <img src="images/home-slider3.jpg" alt="" />
                     <div class="content">
-                        <h3>more for us</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Possimus, ipsam?
-                        </p>
-                        <a href="contact.php"><button class="white-btn">discover</button></a>
+                    <!--------------text----------------->   
                     </div>
                 </div>
 
                 <div class="item swiper-slide">
-                    <img src="images/home-bg3.jpg" alt="" />
+                    <img src="images/home-slider4.jpg" alt="" />
                     <div class="content">
-                        <h3>fresh groeries</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Possimus, ipsam?
-                        </p>
-                        <a href="#"><button class="white-btn">discover</button></a>
+                    <!--------------text----------------->    
                     </div>
                 </div>
             </div>
@@ -192,12 +172,15 @@ if (isset($_POST['add_to_cart'])) {
         <div class="flex">
 
             <div class="image">
-                <img src="images/about-img.jpg" alt="">
+                <img src="images/home-aboutus1.jpg" alt="">
             </div>
 
             <div class="content">
                 <h3>about us</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, mollitia impedit. Nobis non modi optio consequatur vel asperiores blanditiis impedit.</p>
+                <p>Welcome to our keyboard haven! We are passionate about providing top-notch keyboards
+                that elevate your typing experience. Our commitment is rooted in delivering quality and innovation.
+                Join us on this journey as we strive to bring you the best keyboards, crafted with precision 
+                and designed for your utmost satisfaction.</p>
                 <a href="about.php" class="btn">read more</a>
             </div>
 
@@ -209,7 +192,9 @@ if (isset($_POST['add_to_cart'])) {
 
         <div class="content">
             <h3>have any questions?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eum optio aperiam reprehenderit dolor at.</p>
+            <p> If you have any queries or concerns about our products or services,
+                feel free to reach out to us. We are here to assist you and ensure
+                that your experience with our keyboards is seamless and enjoyable.</p>
             <a href="contact.php" class="white-btn">contact us</a>
         </div>
 
