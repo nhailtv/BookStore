@@ -21,8 +21,11 @@
             <h3>contact info</h3>
             <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
             <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
-            <p> <i class="fas fa-envelope"></i> nhienhk19@gmail.com </p>
-            <p> <i class="fas fa-map-marker-alt"></i> hoa vang, da nang, viet nam </p>
+            <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
+            <p> <i class="fas fa-envelope"></i> hailhn.22it@vku.udn.vn </p>
+            <p> <i class="fas fa-envelope"></i> hungtq.22it@vku.udn.vn </p>
+            <p> <i class="fas fa-envelope"></i> duchl.22it@vku.udn.vn </p>
+            <p> <i class="fas fa-map-marker-alt"></i> hoa hai, da nang, viet nam </p>
         </div>
 
         <div class="box">

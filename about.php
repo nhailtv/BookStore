@@ -42,13 +42,16 @@ if (!isset($user_id)) {
         <div class="flex">
 
             <div class="image">
-                <img src="images/about-img.jpg" alt="">
+                <img src="images/home-aboutus1.jpg" alt="">
             </div>
 
             <div class="content">
                 <h3>why choose us?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vitae illo qui atque perspiciatis vero unde neque labore totam voluptate assumenda, sint facere! Facilis, laudantium!</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis distinctio impedit voluptatem velit unde animi error quaerat possimus numquam culpa, ex deleniti! Neque aspernatur quam ad voluptatum porro amet cupiditate.</p>
+                <p>Discover the Excellence of Keyshop. We take pride in offering keyboards that redefine your typing experience.
+
+                <p>In a world flooded with choices, why should you choose us? Our keyboards are more than just input devices; they are crafted with precision, combining cutting-edge technology and ergonomic design to ensure a seamless and enjoyable typing journey.</p>
+
+                <p>At Keyshop, user satisfaction is at the core of our mission.</p>
                 <a href="contact.php" class="btn">contact us</a>
             </div>
 
@@ -63,8 +66,12 @@ if (!isset($user_id)) {
         <div class="box-container">
 
             <div class="box">
-                <img src="images/pic-1.png" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo ex a corrupti nobis. Pariatur ipsam illo porro repudiandae voluptate vero?</p>
+                <img src="images/avt1.jpg" alt="">
+                <p>
+                    Nguyen Hong Nguyen Hai <br>
+                    22IT076 <br>
+                    22SE1 <br>
+                </p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -72,12 +79,16 @@ if (!isset($user_id)) {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <h3>Mr A</h3>
+                <h3>LEADER</h3>
             </div>
 
             <div class="box">
-                <img src="images/pic-2.png" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo ex a corrupti nobis. Pariatur ipsam illo porro repudiandae voluptate vero?</p>
+                <img src="images/avt2.jpg" alt="">
+                <p>
+                    Tran Quoc Hung <br>
+                    22IT124 <br>
+                    22SE1 <br>
+                </p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -85,12 +96,16 @@ if (!isset($user_id)) {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <h3>Mr B</h3>
+                <h3>MEMBER</h3>
             </div>
 
             <div class="box">
-                <img src="images/pic-3.png" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo ex a corrupti nobis. Pariatur ipsam illo porro repudiandae voluptate vero?</p>
+                <img src="images/avt3.jpg" alt="">
+                <p>
+                    Ho Luu Duc <br>
+                    22IT066 <br>
+                    22SE1 <br>
+                </p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -98,46 +113,7 @@ if (!isset($user_id)) {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <h3>Mr C</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/pic-4.png" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo ex a corrupti nobis. Pariatur ipsam illo porro repudiandae voluptate vero?</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h3>Mr D</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/pic-5.png" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo ex a corrupti nobis. Pariatur ipsam illo porro repudiandae voluptate vero?</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>Mr E</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/pic-6.png" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo ex a corrupti nobis. Pariatur ipsam illo porro repudiandae voluptate vero?</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h3>Mr F</h3>
+                <h3>MEMBER</h3>
             </div>
 
         </div>
@@ -151,70 +127,38 @@ if (!isset($user_id)) {
         <div class="box-container">
 
             <div class="box">
-                <img src="images/author-1.jpg" alt="">
+                <img src="images/avt1.1.jpg" alt="">
                 <div class="share">
                     <a href="#" class="fab fa-facebook-f"></a>
                     <a href="#" class="fab fa-twitter"></a>
                     <a href="#" class="fab fa-instagram"></a>
                     <a href="#" class="fab fa-linkedin"></a>
                 </div>
-                <h3>Mr A</h3>
+                <h3>NGUYEN HONG NGUYEN HAI</h3>
             </div>
 
             <div class="box">
-                <img src="images/author-2.jpg" alt="">
+                <img src="images/avt1.2.jpg" alt="">
                 <div class="share">
                     <a href="#" class="fab fa-facebook-f"></a>
                     <a href="#" class="fab fa-twitter"></a>
                     <a href="#" class="fab fa-instagram"></a>
                     <a href="#" class="fab fa-linkedin"></a>
                 </div>
-                <h3>Mr B</h3>
+                <h3>TRAN QUOC HUNG</h3>
             </div>
 
             <div class="box">
-                <img src="images/author-3.jpg" alt="">
+                <img src="images/avt1.3.jpg" alt="">
                 <div class="share">
                     <a href="#" class="fab fa-facebook-f"></a>
                     <a href="#" class="fab fa-twitter"></a>
                     <a href="#" class="fab fa-instagram"></a>
                     <a href="#" class="fab fa-linkedin"></a>
                 </div>
-                <h3>Mr C</h3>
+                <h3>HO LUU DUC</h3>
             </div>
 
-            <div class="box">
-                <img src="images/author-4.jpg" alt="">
-                <div class="share">
-                    <a href="#" class="fab fa-facebook-f"></a>
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                    <a href="#" class="fab fa-linkedin"></a>
-                </div>
-                <h3>Mr D</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/author-5.jpg" alt="">
-                <div class="share">
-                    <a href="#" class="fab fa-facebook-f"></a>
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                    <a href="#" class="fab fa-linkedin"></a>
-                </div>
-                <h3>Mr E</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/author-6.jpg" alt="">
-                <div class="share">
-                    <a href="#" class="fab fa-facebook-f"></a>
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                    <a href="#" class="fab fa-linkedin"></a>
-                </div>
-                <h3>Mr F</h3>
-            </div>
 
         </div>
 
