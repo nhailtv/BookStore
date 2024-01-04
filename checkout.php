@@ -22,6 +22,10 @@ if (isset($_POST['order_btn'])) {
     $cart_total = 0;
     $cart_products[] = '';
 
+
+
+
+
     $cart_query = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
     if (mysqli_num_rows($cart_query) > 0) {
         while ($cart_item = mysqli_fetch_assoc($cart_query)) {
@@ -42,12 +46,37 @@ if (isset($_POST['order_btn'])) {
             $message[] = 'order already placed!';
         } else {
             mysqli_query($conn, "INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, placed_on) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$cart_total', '$placed_on')") or die('query failed');
+            
             $message[] = 'order placed successfully!';
+            
+        
+            // Update product stock after successful checkout
+            $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+            if (mysqli_num_rows($select_cart) > 0) {
+                while ($fetch_cart = mysqli_fetch_assoc($select_cart)) {
+                    $product_name = $fetch_cart['product_id'];
+                    $quantity = $fetch_cart['quantity'];
+                    // Retrieve current stock of the product
+                    $get_stock_query = mysqli_query($conn, "SELECT `stock` FROM `products` WHERE id = '$product_name'") or die('query failed');
+                    $current_stock = mysqli_fetch_assoc($get_stock_query)['stock'];
+                    $updated_stock = $current_stock - $quantity;
+                   
+                   
+                    mysqli_query($conn, "UPDATE `products` SET `stock` = '$updated_stock' WHERE id = '$product_name'") or die('query failed');
+
+                }
+            }
             mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
         }
     }
 }
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
 
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
 ?>
 
 <!DOCTYPE html>

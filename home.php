@@ -16,13 +16,15 @@ if (isset($_POST['add_to_cart'])) {
     $product_price = $_POST['product_price'];
     $product_image = $_POST['product_image'];
     $product_quantity = $_POST['product_quantity'];
+    $product_id = $_POST['product_id'];
+ 
 
     $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
 
     if (mysqli_num_rows($check_cart_numbers) > 0) {
         $message[] = 'already added to cart!';
     } else {
-        mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
+        mysqli_query($conn, "INSERT INTO `cart`(user_id, product_id, name, price, quantity, image) VALUES('$user_id', '$product_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
         $message[] = 'product added to cart!';
     }
 }
@@ -99,6 +101,7 @@ if (isset($_POST['add_to_cart'])) {
                 while ($fetch_products = mysqli_fetch_assoc($select_products)) {
             ?>
                     <form action="" method="post" class="box" data-name="<?php echo $mark ?>">
+                        <input type="hidden" name="product_id" value="<?php echo $fetch_products['id']; ?>">
                         <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
                         <div class="name"><?php echo $fetch_products['name']; ?></div>
                         <div class="price">$<?php echo $fetch_products['price']; ?></div>
@@ -106,7 +109,7 @@ if (isset($_POST['add_to_cart'])) {
                         if ($fetch_products['Stock'] != 0) {
                         ?>
                             <input class="name" style="text-align: center; display:flex;color:#c48702;" value="Stock: <?php echo $fetch_products['Stock']; ?>">
-                            <input type="number" min="1" name="product_quantity" value="1" class="qty">
+                            <input type="number" min="1" max="<?php echo $fetch_products['Stock']; ?>" name="product_quantity" value="1" class="qty">
                             <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
                             <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
                             <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
@@ -130,36 +133,7 @@ if (isset($_POST['add_to_cart'])) {
         </div>
 
 
-        <div class="preview-boxes">
-            <?php
-            // Add the preview box for each product in PHP loop
-            $select_products = mysqli_query($conn, "SELECT * FROM `products` LIMIT 6") or die('query failed');
-            if (mysqli_num_rows($select_products) > 0) {
-                $mark = 1;
-                while ($fetch_products = mysqli_fetch_assoc($select_products)) {
-
-            ?>
-                    <div class="preview-box" data-target="<?php echo $mark ?>" style="display: none;">
-                        <div class="preview-content">
-                            <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="<?php echo $fetch_products['name']; ?>">
-                            <h3><?php echo $fetch_products['name']; ?></h3>
-                            <form action="" method="post">
-                                <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
-                                <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
-                                <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
-                                <input type="number" min="1" name="product_quantity" value="1" class="qty" style="margin-top: 10px;">
-                                <input type="submit" value="Add to Cart" name="add_to_cart" class="btn" style="margin-top: 10px;">
-                            </form>
-                        </div>
-                    </div>
-            <?php
-                    $mark++;
-                }
-            } else {
-                echo '<p class="empty">No products added yet!</p>';
-            }
-            ?>
-        </div>
+   
 
 
 

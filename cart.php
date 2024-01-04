@@ -63,7 +63,13 @@ if (isset($_GET['delete_all'])) {
         <div class="box-container">
             <?php
             $grand_total = 0;
+
+            $product_info = mysqli_query($conn, "SELECT * FROM products") or die('query failed');
+            $fetch_product = mysqli_fetch_assoc($product_info);
+            $max_quantity = $fetch_product['Stock'];
+
             $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+           
             if (mysqli_num_rows($select_cart) > 0) {
                 while ($fetch_cart = mysqli_fetch_assoc($select_cart)) {
             ?>
@@ -74,7 +80,7 @@ if (isset($_GET['delete_all'])) {
                         <div class="price">$<?php echo $fetch_cart['price']; ?>/-</div>
                         <form action="" method="post">
                             <input type="hidden" name="cart_id" value="<?php echo $fetch_cart['id']; ?>">
-                            <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>">
+                            <input type="number" min="1" max="<?php echo $max_quantity?>"   name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>">
                             <input type="submit" name="update_cart" value="update" class="option-btn">
                         </form>
                         <div class="sub-total"> sub total : <span>$<?php echo $sub_total = ($fetch_cart['quantity'] * $fetch_cart['price']); ?>/-</span> </div>
