@@ -317,10 +317,11 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, 30rem);
   justify-content: center;
-  gap: 1.5rem;
+  gap: 10rem;
   max-width: 1200px;
   margin: 0 auto;
   align-items: flex-start;
+  
 }
 
 .show-products {
@@ -338,6 +339,8 @@ section {
 
 .show-products .box-container .box img {
   height: 30rem;
+  width: 100%;
+  object-fit: cover;
 }
 
 .show-products .box-container .box .name {

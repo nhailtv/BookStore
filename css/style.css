@@ -56,7 +56,7 @@ section {
   position: sticky;
   top: 0;
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 1200px;
   background-color: var(--white);
   padding: 2rem;
   display: flex;
@@ -239,7 +239,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -261,7 +261,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
@@ -379,13 +379,14 @@ section {
 }
 
 .products .box-container {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, 30rem);
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 10rem;
   justify-content: center;
+  row-gap: 10rem;
 }
 
 .products .box-container .box {
@@ -449,7 +450,7 @@ section {
 }
 
 .about .flex {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -462,6 +463,7 @@ section {
 
 .about .flex .image img {
   width: 100%;
+  
 }
 
 .about .flex .content {
@@ -533,6 +535,8 @@ section {
   height: 10rem;
   width: 10rem;
   border-radius: 50%;
+  
+  
 }
 
 .reviews .box-container .box p {
@@ -586,6 +590,7 @@ section {
   width: 100%;
   height: 40rem;
   object-fit: cover;
+  
 }
 
 .authors .box-container .box .share {
@@ -695,6 +700,8 @@ section {
 
 .shopping-cart .box-container .box img {
   height: 30rem;
+  width: 100%;
+  object-fit: cover;
 }
 
 .shopping-cart .box-container .box .name {

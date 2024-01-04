@@ -128,7 +128,7 @@ if (isset($_POST['update_product'])) {
                         <div class="name"><?php echo $fetch_products['name']; ?></div>
                         <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
                         <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">update</a>
-                        <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product');">delete</a>
+                        <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('Do you want to delete this product?');">delete</a>
                     </div>
             <?php
                 }
