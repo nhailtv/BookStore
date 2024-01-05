@@ -26,7 +26,7 @@ if (isset($_POST['add_to_cart'])) {
         $message[] = 'product added to cart!';
     }
 }
-
+if (isset($_GET['search']) && !empty($_GET['search'])) {}
 $limit = 6;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $offset = ($page - 1) * $limit;
@@ -60,16 +60,30 @@ $totalPages = ceil($totalProducts / $limit);
 <body>
 
     <?php include 'header.php'; ?>
+ <?php   // Check if there's a search query
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $search = mysqli_real_escape_string($conn, $_GET['search']);
+    $select_products = mysqli_query($conn, "SELECT * FROM `products` WHERE name LIKE '%$search%'") or die("query failed");
+} else {
+    // If no search or search input is empty, fetch paginated results
+    $limit = 6;
+    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $offset = ($page - 1) * $limit;
+    
+    $select_products = mysqli_query($conn, "SELECT * FROM `products` LIMIT {$offset}, {$limit}") or die("query failed");
+    }
 
-    <div class="heading">
-        <h3>our shop</h3>
-        <p> <a href="home.php">home</a> / shop </p>
-    </div>
+// The code to display products and related HTML should be here
+// Use $select_products to fetch and display products within this section
+?>
 
-    <section class="products">
 
-        <h1 class="title">All products</h1>
+    
 
+    <section class="products" style="padding: 0rem 2rem;">
+        <div class="search-container" style="justify-content: center;  align-items: center; display: flex; margin: 10px ;">
+            <input type="text" id="searchInput" placeholder="   Search products..." style="width: 80vh; height: 50px;border-radius: 10px;border-style: 3px solid; font-size: 30px;text-align: center; border-radius: 10px;border:3px solid; color:darkolivegreen">
+        </div>
         <div class="box-container">
 
             <?php
@@ -118,7 +132,24 @@ $totalPages = ceil($totalProducts / $limit);
 
     <!-- custom js file link  -->
     <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#searchInput").on("keyup", function() {
+                var searchText = $(this).val().toLowerCase();
 
+                $(".products .box").each(function() {
+                    var productName = $(this).find(".name").text().toLowerCase();
+
+                    if (productName.includes(searchText) || searchText === '') {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -246,6 +246,9 @@ section {
 .header .header-2 {
   background-color: var(--white);
   box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  margin: 10px 20vh 10px 20vh;
+  background: linear-gradient(to right ,#80BCBD, #F9F7C9);
 }
 
 .header .header-2.active {
@@ -352,8 +355,8 @@ section {
 }
 
 .home .home-slider .item img {
-  height: 90vh;
-  object-fit: cover;
+  height: 82vh;
+  object-fit: contain;
   width: 100%;
 }
 
@@ -386,7 +389,7 @@ section {
   align-items: flex-start;
   gap: 10rem;
   justify-content: center;
-  row-gap: 10rem;
+  row-gap: 1rem;
 }
 
 .products .box-container .box {
@@ -865,6 +868,7 @@ section {
   border:var(--border);
   background-color: var(--light-bg);
   padding:1rem 2rem;
+  
 }
 
 .placed-orders .box-container .box p{

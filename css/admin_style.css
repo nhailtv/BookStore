@@ -410,6 +410,8 @@ section {
   border: var(--border);
   box-shadow: var(--box-shadow);
   border-radius: 0.5rem;
+  height: 606px;
+  max-width: 35vh;
 }
 
 .orders .box-container .box p {

@@ -17,7 +17,7 @@ if (isset($_POST['add_to_cart'])) {
     $product_image = $_POST['product_image'];
     $product_quantity = $_POST['product_quantity'];
     $product_id = $_POST['product_id'];
- 
+
 
     $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
 
@@ -51,7 +51,37 @@ if (isset($_POST['add_to_cart'])) {
 </head>
 
 <body>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
 
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "102931508758451");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml: true,
+                version: 'v18.0'
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <?php include 'header.php'; ?>
 
     <section class="home" id="home">
@@ -60,28 +90,28 @@ if (isset($_POST['add_to_cart'])) {
                 <div class="item swiper-slide">
                     <img src="images/home-slider1.jpg" alt="" />
                     <div class="content">
-                    <!--------------text----------------->
+                        <!--------------text----------------->
                     </div>
                 </div>
 
                 <div class="item swiper-slide">
                     <img src="images/home-slider2.jpg" alt="" />
                     <div class="content">
-                    <!--------------text----------------->
+                        <!--------------text----------------->
                     </div>
                 </div>
 
                 <div class="item swiper-slide">
                     <img src="images/home-slider3.jpg" alt="" />
                     <div class="content">
-                    <!--------------text----------------->   
+                        <!--------------text----------------->
                     </div>
                 </div>
 
                 <div class="item swiper-slide">
                     <img src="images/home-slider4.jpg" alt="" />
                     <div class="content">
-                    <!--------------text----------------->    
+                        <!--------------text----------------->
                     </div>
                 </div>
             </div>
@@ -91,6 +121,11 @@ if (isset($_POST['add_to_cart'])) {
     <section class="products">
 
         <h1 class="title">latest products</h1>
+
+
+        <div class="search-container" style="justify-content: center;  align-items: center; display: flex; margin: 10px ;">
+            <input type="text" id="searchInput" placeholder="   Search products..." style="width: 80vh; height: 50px;border-radius: 10px;border-style: 3px solid; font-size: 30px;text-align: center; border-radius: 10px;border:3px solid; color:darkolivegreen">
+        </div>
 
         <div class="box-container">
 
@@ -133,7 +168,7 @@ if (isset($_POST['add_to_cart'])) {
         </div>
 
 
-   
+
 
 
 
@@ -152,9 +187,9 @@ if (isset($_POST['add_to_cart'])) {
             <div class="content">
                 <h3>about us</h3>
                 <p>Welcome to our keyboard haven! We are passionate about providing top-notch keyboards
-                that elevate your typing experience. Our commitment is rooted in delivering quality and innovation.
-                Join us on this journey as we strive to bring you the best keyboards, crafted with precision 
-                and designed for your utmost satisfaction.</p>
+                    that elevate your typing experience. Our commitment is rooted in delivering quality and innovation.
+                    Join us on this journey as we strive to bring you the best keyboards, crafted with precision
+                    and designed for your utmost satisfaction.</p>
                 <a href="about.php" class="btn">read more</a>
             </div>
 
@@ -181,7 +216,24 @@ if (isset($_POST['add_to_cart'])) {
 
     <!-- custom js file link -->
     <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#searchInput").on("keyup", function() {
+                var searchText = $(this).val().toLowerCase();
 
+                $(".products .box").each(function() {
+                    var productName = $(this).find(".name").text().toLowerCase();
+
+                    if (productName.includes(searchText) || searchText === '') {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

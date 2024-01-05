@@ -18,13 +18,14 @@ if (isset($_POST['add_product'])) {
     $image_size = $_FILES['image']['size'];
     $image_tmp_name = $_FILES['image']['tmp_name'];
     $image_folder = 'uploaded_img/' . $image;
+    $stock = $_POST['stock'];
 
     $select_product_name = mysqli_query($conn, "SELECT name FROM `products` WHERE name = '$name'") or die('query failed');
 
     if (mysqli_num_rows($select_product_name) > 0) {
         $message[] = 'product name already added';
     } else {
-        $add_product_query = mysqli_query($conn, "INSERT INTO `products`(name, price, image) VALUES('$name', '$price', '$image')") or die('query failed');
+        $add_product_query = mysqli_query($conn, "INSERT INTO `products`(name, price, image,stock) VALUES('$name', '$price', '$image','$stock')") or die('query failed');
 
         if ($add_product_query) {
             if ($image_size > 2000000) {
@@ -53,8 +54,9 @@ if (isset($_POST['update_product'])) {
     $update_p_id = $_POST['update_p_id'];
     $update_name = $_POST['update_name'];
     $update_price = $_POST['update_price'];
+    $update_stock = $_POST['update_stock'];
 
-    mysqli_query($conn, "UPDATE `products` SET name = '$update_name', price = '$update_price' WHERE id = '$update_p_id'") or die('query failed');
+    mysqli_query($conn, "UPDATE `products` SET name = '$update_name', price = '$update_price',stock ='$update_stock' WHERE id = '$update_p_id'") or die('query failed');
 
     $update_image = $_FILES['update_image']['name'];
     $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
@@ -106,6 +108,7 @@ if (isset($_POST['update_product'])) {
             <h3>add product</h3>
             <input type="text" name="name" class="box" placeholder="enter product name" required>
             <input type="number" min="0" name="price" class="box" placeholder="enter product price" required>
+            <input type="number" min="0" name="stock" class="box" placeholder="enter product stock" required>
             <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
             <input type="submit" value="add product" name="add_product" class="btn">
         </form>
@@ -113,7 +116,9 @@ if (isset($_POST['update_product'])) {
     </section>
 
     <!-- show products -->
-
+	<div class="search-container" style="justify-content: center;  align-items: center; display: flex; margin: 10px ;">
+   				 <input type="text" id="searchInput" placeholder="   Search products..." style="width: 80vh; height: 50px;border-radius: 10px;border-style: 3px solid; font-size: 30px;text-align: center; border-radius: 10px;border:3px solid; color:darkolivegreen">
+	</div>
     <section class="show-products">
 
         <div class="box-container">
@@ -123,10 +128,11 @@ if (isset($_POST['update_product'])) {
             if (mysqli_num_rows($select_products) > 0) {
                 while ($fetch_products = mysqli_fetch_assoc($select_products)) {
             ?>
-                    <div class="box">
+                    <div class="box" >
                         <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
                         <div class="name"><?php echo $fetch_products['name']; ?></div>
                         <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
+                        <input class="name" style="text-align: center; display:flex;" disabled value="Stock: <?php echo $fetch_products['Stock']; ?>">
                         <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">update</a>
                         <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('Do you want to delete this product?');">delete</a>
                     </div>
@@ -153,8 +159,16 @@ if (isset($_POST['update_product'])) {
                         <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
                         <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
                         <img src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
+
                         <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="box" required placeholder="enter product name">
                         <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="box" required placeholder="enter product price">
+                        <input type="number" name="update_stock" style="margin:1rem 0;padding: 1.2rem 1.4rem;
+                                                                    border: var(--border);
+                                                                    border-radius: 0.5rem;
+                                                                    background-color: var(--light-bg);
+                                                                    font-size: 1.8rem;
+                                                                    color: var(--black);
+                                                                    width: 100%;" value="<?php echo $fetch_update['Stock']; ?>">
                         <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
                         <input type="submit" value="update" name="update_product" class="btn">
                         <input type="reset" value="cancel" id="close-update" class="option-btn">
@@ -177,6 +191,26 @@ if (isset($_POST['update_product'])) {
 
     <!-- custom admin js file link -->
     <script src="js/admin_script1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#searchInput").on("keyup", function() {
+            var searchText = $(this).val().toLowerCase();
+
+            $(".show-products .box").each(function() {
+                var productName = $(this).find(".name").text().toLowerCase();
+
+                if (productName.includes(searchText) || searchText === '') {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+</script>
+
+
 
 </body>
 
